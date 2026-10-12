@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for musica in musicas %}
+        <h2>{{ musica.titulo }}</h2>
+        
+        <!-- Bloco corrigido para listar os artistas da música -->
+        <p>Artista(s): 
+        {% for artista in musica.artistas.all %}
+            <a href="{% url 'perfil' artista.id %}">{{ artista.artista }}</a>{% if not forloop.last %}, {% endif %}
+        {% empty %}
+            Artista não informado
+        {% endfor %}
+        </p>
+
+        <p>Gênero: {{ musica.genero }}</p>
+        <hr> <!-- Uma linha divisória opcional entre as músicas -->
+    {% endfor %}
+</body>
+</html>

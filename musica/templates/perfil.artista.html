@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Artista</title>
+</head>
+<body>
+    <!-- Exibe o nome do artista diretamente (sem laço) -->
+    <h1>Artista: {{ artista.artista }}</h1> 
+
+    <h3>Músicas deste artista:</h3>
+    <ul>
+        <!-- Faz o laço na lista de músicas enviada pela View -->
+        {% for musica in musicas %}
+            <li>{{ musica.titulo }} (Gênero: {{ musica.genero }})</li>
+        {% empty %}
+            <li>Este artista ainda não possui músicas cadastradas.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
