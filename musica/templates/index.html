@@ -17,8 +17,11 @@
             Artista não informado
         {% endfor %}
         </p>
-
-        <p>Gênero: {{ musica.genero }}</p>
+        {% for artista in genero %}
+            <p>Gênero: {{ artista.genero }}</p>
+        {% empty %}
+            <p>Gênero não informado</p>
+        {% endfor %}
         <hr> <!-- Uma linha divisória opcional entre as músicas -->
     {% endfor %}
 </body>
